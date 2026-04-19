@@ -19,7 +19,6 @@ const CARD_STATUS_CLASS = {
 }
 
 function Game() {
-  // Add your implementations here by editing this array
   const implementations = [
     {
       id: 1,
@@ -32,10 +31,10 @@ function Game() {
     },
     {
       id: 2,
-      title: "Basic Minesweeper",
-      description: "A simple implementation with basic game mechanics",
-      author: "Author Name",
-      link: "#",
+      title: "Сапер (компоненти + CSS Modules)",
+      description: "Поле 6×8, 10 мін, таймер, прапорці, перемога/програш. Логіка в useMinesweeper, UI: Board, Cell, Timer, GameStatus, FlagCounter, RestartButton.",
+      author: "Шевеля Вікторія",
+      link: "/shevelia-viktoriia",
       difficulty: "Beginner",
       status: "Complete"
     },
