@@ -23,11 +23,11 @@ function Game() {
   const implementations = [
     {
       id: 1,
-      title: "Mock Minesweeper Game",
-      description: "A fully functional minesweeper implementation with timer, flagging, and win/lose detection. This serves as an example for students.",
-      author: "Example Implementation",
-      link: "/mock-game",
-      difficulty: "Beginner",
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React (Практична 4)",
+      author: "Ярослав Жук",
+      link: "/zhuk-yaroslav",
+      difficulty: "Intermediate",
       status: "Complete"
     },
     {
