@@ -4,7 +4,7 @@ import styles from './MockGame.module.css'
 function MockGame() {
   const [board, setBoard] = useState([])
   const [gameStatus, setGameStatus] = useState('playing') // playing, won, lost
-  const [mineCount, setMineCount] = useState(10)
+  const mineCount = 10
   const [time, setTime] = useState(0)
   const [isFirstClick, setIsFirstClick] = useState(true)
 
@@ -21,21 +21,25 @@ function MockGame() {
     let interval = null
     if (gameStatus === 'playing') {
       interval = setInterval(() => {
-        setTime(time => time + 1)
+        setTime((time) => time + 1)
       }, 1000)
     }
     return () => clearInterval(interval)
   }, [gameStatus])
 
   const initializeBoard = () => {
-    const newBoard = Array(ROWS).fill(null).map(() =>
-      Array(COLS).fill(null).map(() => ({
-        isRevealed: false,
-        isMine: false,
-        isFlagged: false,
-        neighborCount: 0
-      }))
-    )
+    const newBoard = Array(ROWS)
+      .fill(null)
+      .map(() =>
+        Array(COLS)
+          .fill(null)
+          .map(() => ({
+            isRevealed: false,
+            isMine: false,
+            isFlagged: false,
+            neighborCount: 0,
+          }))
+      )
     setBoard(newBoard)
     setGameStatus('playing')
     setTime(0)
@@ -226,10 +230,7 @@ function MockGame() {
       </div>
 
       <div className={styles.gameControls}>
-        <button
-          className={styles.newGameBtn}
-          onClick={initializeBoard}
-        >
+        <button className={styles.newGameBtn} onClick={initializeBoard}>
           New Game
         </button>
         <div className={styles.instructions}>
