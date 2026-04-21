@@ -1,20 +1,19 @@
-import Cell from './Cell';
-import styles from '../Minesweeper.module.css';
+import Cell from './Cell'
+import styles from '../Minesweeper.module.css'
 
 function Board({ board, gameStatus, explodedCell, onReveal, onToggleFlag }) {
-  const rows = board.length;
-  const cols = rows > 0 ? board[0].length : 0;
+  const rows = board.length
+  const cols = rows > 0 ? board[0].length : 0
 
   return (
     <main
       className={styles.grid}
-      style={{
-        '--grid-cols': cols,
-        '--grid-rows': rows
-      }}
+      role="grid"
+      aria-label="Minesweeper board"
+      style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
     >
-      {board.map((rowData, rowIndex) =>
-        rowData.map((cell, colIndex) => (
+      {board.map((row, rowIndex) =>
+        row.map((cell, colIndex) => (
           <Cell
             key={`${rowIndex}-${colIndex}`}
             cell={cell}
@@ -28,7 +27,7 @@ function Board({ board, gameStatus, explodedCell, onReveal, onToggleFlag }) {
         ))
       )}
     </main>
-  );
+  )
 }
 
-export default Board;
+export default Board
