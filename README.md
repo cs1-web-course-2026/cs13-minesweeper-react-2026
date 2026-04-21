@@ -2,6 +2,8 @@
 
 A React-based implementation of the classic Minesweeper game built with Vite for fast development and hot module replacement.
 
+**Live demo:** https://cs1-web-course-2026.github.io/cs13-minesweeper-react-2026/game
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed on your system:
