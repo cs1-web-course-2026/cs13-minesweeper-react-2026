@@ -1,7 +1,11 @@
-import styles from '../Minesweeper.module.css';
+import styles from '../Minesweeper.module.css'
 
 function GameStatus({ message }) {
-  return <div className={styles.statusMessage}>{message}</div>;
+  return (
+    <p role="status" aria-live="polite" className={styles.statusMessage}>
+      {message}
+    </p>
+  )
 }
 
-export default GameStatus;
+export default GameStatus
