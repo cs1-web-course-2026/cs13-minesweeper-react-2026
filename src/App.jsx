@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Game from './pages/Game'
 import MockGame from './pages/MockGame'
-import StudentMinesweeperGame from './pages/ШевеляВікторія'
+import StudentMinesweeperGame from './pages/SheveliaViktoriia'
 
 function App() {
   return (

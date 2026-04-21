@@ -31,10 +31,10 @@ function Game() {
     },
     {
       id: 2,
-      title: "Сапер (компоненти + CSS Modules)",
-      description: "Поле 6×8, 10 мін, таймер, прапорці, перемога/програш. Логіка в useMinesweeper, UI: Board, Cell, Timer, GameStatus, FlagCounter, RestartButton.",
-      author: "Шевеля Вікторія",
-      link: "/shevelia-viktoriia",
+      title: "Basic Minesweeper",
+      description: "A simple implementation with basic game mechanics",
+      author: "Author Name",
+      link: "#",
       difficulty: "Beginner",
       status: "Complete"
     },
@@ -55,6 +55,15 @@ function Game() {
       link: "#",
       difficulty: "Advanced",
       status: "Planning"
+    },
+    {
+      id: 5,
+      title: "Сапер (компоненти + CSS Modules)",
+      description: "Поле 6×8, 10 мін, таймер, прапорці, перемога/програш.",
+      author: "Шевеля Вікторія",
+      link: "/shevelia-viktoriia",
+      difficulty: "Beginner",
+      status: "Complete"
     }
   ]
 

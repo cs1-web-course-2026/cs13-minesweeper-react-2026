@@ -1,0 +1,124 @@
+.page {
+  --bg: #dff1ff;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+  color: #586475;
+}
+
+.header {
+  width: min(92vw, 520px);
+  margin: 0 auto 1rem;
+  text-align: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at top, #b4d0e391, var(--bg));
+}
+
+.page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: #dff1ff;
+}
+
+.title {
+  margin: 0;
+  width: 100%;
+  font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+  color: #2b2f42;
+  background-color: rgb(210, 178, 199);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+}
+
+.gameShell {
+  width: min(92vw, 520px);
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #d7e4f6;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(201, 205, 218, 0.767);
+  padding: clamp(12px, 2.5vw, 16px);
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.gameShellWon {
+  border-color: #14b8a6;
+  box-shadow: 0 16px 48px rgba(20, 184, 166, 0.35);
+}
+
+.gameShellLost {
+  border-color: #e11d48;
+  box-shadow: 0 16px 48px rgba(225, 29, 72, 0.3);
+}
+
+.stats {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 0.85rem;
+}
+
+.instructions {
+  width: min(92vw, 520px);
+  margin: 1.25rem auto 0;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #d7e4f6;
+  border-radius: 10px;
+}
+
+.instructionsTitle {
+  margin: 0 0 0.5rem;
+  color: #2b2f42;
+  font-weight: 700;
+}
+
+.instructions ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #374151;
+  line-height: 1.45;
+}
+
+.instructions li {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 18px 10px 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 1.45rem;
+  }
+}
