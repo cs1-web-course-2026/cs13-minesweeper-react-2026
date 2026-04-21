@@ -1,7 +1,11 @@
-import styles from '../Minesweeper.module.css';
+import styles from '../Minesweeper.module.css'
 
 function FlagCounter({ value }) {
-  return <div className={styles.counter}>{value}</div>;
+  return (
+    <div className={styles.counter} aria-label={`Flags remaining: ${value}`}>
+      {value}
+    </div>
+  )
 }
 
-export default FlagCounter;
+export default FlagCounter
