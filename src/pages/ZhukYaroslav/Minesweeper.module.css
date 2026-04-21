@@ -4,11 +4,11 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 30px;
+  padding: 30px 60px;
   background-color: #1a1a1a;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  max-width: fit-content;
+  max-width: 450px;
   margin: 0 auto;
   color: #ffffff;
   font-family: sans-serif;
