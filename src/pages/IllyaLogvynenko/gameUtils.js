@@ -56,20 +56,26 @@ export function getAdjacentCells(grid, row, col) {
 
 export function countAdjacentMines(grid) {
   if (grid.length === 0) {
-    return;
+    return [];
   }
 
-  for (let row = 0; row < grid.length; row += 1) {
-    for (let col = 0; col < grid[0].length; col += 1) {
-      if (grid[row][col].type === CELL_CONTENT.MINE) {
-        continue;
+  return grid.map((row, rowIndex) =>
+    row.map((cell, colIndex) => {
+      if (cell.type === CELL_CONTENT.MINE) {
+        return {
+          ...cell,
+          neighborMines: 0
+        };
       }
 
-      grid[row][col].neighborMines = getAdjacentCells(grid, row, col)
-        .filter(({ cell }) => cell.type === CELL_CONTENT.MINE)
-        .length;
-    }
-  }
+      return {
+        ...cell,
+        neighborMines: getAdjacentCells(grid, rowIndex, colIndex)
+          .filter(({ cell: adjacentCell }) => adjacentCell.type === CELL_CONTENT.MINE)
+          .length
+      };
+    })
+  );
 }
 
 export function placeMines(board, safeRow, safeCol, minesCount) {
@@ -99,9 +105,7 @@ export function placeMines(board, safeRow, safeCol, minesCount) {
     }
   }
 
-  countAdjacentMines(nextBoard);
-
-  return nextBoard;
+  return countAdjacentMines(nextBoard);
 }
 
 export function countFlaggedCells(grid) {
