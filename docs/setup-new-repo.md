@@ -5,6 +5,19 @@ with the actual repo name and GitHub org for the new course group.
 
 ---
 
+## 0. Enable GitHub Pages
+
+Before pushing any code, enable GitHub Pages so the deploy workflow can create deployments:
+
+1. Go to the repo on GitHub → **Settings → Pages**
+2. Under **Source** select **GitHub Actions**
+3. Click **Save**
+
+> If this step is skipped, the deploy workflow will fail with a `404 Not Found` error when
+> trying to create the Pages deployment.
+
+---
+
 ## 1. Clone and scaffold
 
 ```bash
@@ -277,14 +290,13 @@ jobs:
 
 ---
 
-## 7. Enable GitHub Pages
-
-1. Go to the repo on GitHub → **Settings → Pages**
-2. Under **Source** select **GitHub Actions**
-3. Save
+## 7. Verify the deployment
 
 Push to `main` — the deploy workflow will run and the site will be live at:
 `https://cs1-web-course-2026.github.io/csNN-minesweeper-react-2026/`
+
+> Make sure step 0 (enabling GitHub Pages) was completed before pushing, otherwise the
+> workflow will fail with a `404 Not Found` error.
 
 ---
 
@@ -319,6 +331,7 @@ A React-based implementation...
 
 ## Summary checklist
 
+- [ ] GitHub Pages source set to **GitHub Actions** _(do this first — step 0)_
 - [ ] `vite.config.js` — conditional `base` using `mode`
 - [ ] `src/main.jsx` — `BrowserRouter` with `import.meta.env.BASE_URL`
 - [ ] `src/global.module.css` renamed to `src/global.css`
@@ -327,6 +340,5 @@ A React-based implementation...
 - [ ] `index.html` has the path-restore script in `<head>`
 - [ ] `.github/workflows/ci.yml` created
 - [ ] `.github/workflows/deploy.yml` created
-- [ ] GitHub Pages source set to **GitHub Actions**
 - [ ] `README.md` updated with live demo URL
 - [ ] Branch protection rule requiring `CI / Lint & Build`
