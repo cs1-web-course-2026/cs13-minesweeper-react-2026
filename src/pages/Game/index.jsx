@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import styles from './Game.module.css'
 
 const STATUS_CLASS = {
@@ -21,7 +19,6 @@ const CARD_STATUS_CLASS = {
 }
 
 function Game() {
-  // Add your implementations here by editing this array
   const implementations = [
     {
       id: 1,
@@ -34,11 +31,11 @@ function Game() {
     },
     {
       id: 2,
-      title: "Basic Minesweeper",
-      description: "A simple implementation with basic game mechanics",
-      author: "Author Name",
-      link: "#",
-      difficulty: "Beginner",
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React",
+      author: "Illya Logvynenko",
+      link: "/illya-logvynenko",
+      difficulty: "Intermediate",
       status: "Complete"
     },
     {
@@ -92,9 +89,9 @@ function Game() {
             <p className={styles.description}>{impl.description}</p>
             <div className={styles.cardActions}>
               {impl.link.startsWith('/') ? (
-                <Link to={impl.link} className={styles.linkBtn}>
+                <a href={impl.link} className={styles.linkBtn}>
                   View Implementation →
-                </Link>
+                </a>
               ) : (
                 <a
                   href={impl.link}
