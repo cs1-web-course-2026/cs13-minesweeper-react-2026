@@ -58,6 +58,15 @@ function Game() {
       link: "#",
       difficulty: "Advanced",
       status: "Planning"
+    },
+    {
+      id: 5,
+      title: "Minesweeper - Maksym Klushyn",
+      description: "My implementation of the classic Minesweeper game in React using a modern component-based architecture.",
+      author: "Maksym Klushyn",
+      link: "/klushyn-maksym",
+      difficulty: "Intermediate",
+      status: "Complete"
     }
   ]
 
