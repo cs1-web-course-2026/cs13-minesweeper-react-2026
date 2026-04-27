@@ -58,6 +58,16 @@ function Game() {
       link: "#",
       difficulty: "Advanced",
       status: "Planning"
+    },
+
+    {
+      id: 5, 
+      title: "Minesweeper (React Implementation)",
+      description: "Класичний сапер: рекурсивне відкриття, таймер та прапорці.",
+      author: "Sokolov Denys",
+      link: "/sokolov-denys",
+      difficulty: "Beginner",
+      status: "Complete"
     }
   ]
 
