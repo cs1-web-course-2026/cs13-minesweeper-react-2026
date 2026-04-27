@@ -6,15 +6,19 @@ const Board = ({ field, onCellClick, onCellFlag, rows, cols }) => {
   return (
     <div 
       className={styles.board} 
+      role="grid"
+      aria-label="Ігрове поле Сапера"
       style={{ 
-        gridTemplateColumns: `repeat(${cols}, 60px)`,
-        gridTemplateRows: `repeat(${rows}, 60px)` 
+        gridTemplateColumns: `repeat(${cols}, var(--cell-size, 60px))`,
+        gridTemplateRows: `repeat(${rows}, var(--cell-size, 60px))` 
       }}
     >
       {field.map((row, rowIndex) => 
         row.map((cell, colIndex) => (
           <Cell 
-            key={`${rowIndex}-${colIndex}`} // Ключ для React (Reconciliation)
+            key={`${rowIndex}-${colIndex}`}
+            row={rowIndex}
+            col={colIndex}
             data={cell}
             onOpen={() => onCellClick(rowIndex, colIndex)}
             onFlag={() => onCellFlag(rowIndex, colIndex)}
