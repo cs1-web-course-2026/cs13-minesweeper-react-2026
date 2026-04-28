@@ -21,7 +21,6 @@ const CARD_STATUS_CLASS = {
 }
 
 function Game() {
-  // Add your implementations here by editing this array
   const implementations = [
     {
       id: 1,
@@ -31,6 +30,15 @@ function Game() {
       link: "/mock-game",
       difficulty: "Beginner",
       status: "Complete"
+    },
+    {
+    id: "zhuk-yaroslav", 
+    title: "Minesweeper React",
+    description: "Реалізація гри Сапер на React (Практична 4)",
+    author: "Ярослав Жук",
+    link: "/zhuk-yaroslav",
+    difficulty: "Intermediate",
+    status: "Complete"
     },
     {
       id: 2,
@@ -58,6 +66,15 @@ function Game() {
       link: "#",
       difficulty: "Advanced",
       status: "Planning"
+    },
+    {
+      id: 5,
+      title: "Сапер (компоненти + CSS Modules)",
+      description: "Поле 6×8, 10 мін, таймер, прапорці, перемога/програш.",
+      author: "Шевеля Вікторія",
+      link: "/shevelia-viktoriia",
+      difficulty: "Beginner",
+      status: "Complete"
     }
   ]
 

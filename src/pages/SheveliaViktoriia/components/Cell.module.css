@@ -1,0 +1,106 @@
+.cell {
+  appearance: none;
+  width: 100%;
+  padding: 0;
+  border: 2px solid #d7e4f6;
+  border-radius: 8px;
+  background: #d5dee9;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+  color: #1f2937;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  line-height: 1;
+  vertical-align: middle;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  outline-offset: 2px;
+  box-sizing: border-box;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+
+.cell:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cell:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.hidden {
+  background: linear-gradient(145deg, #e7edf5, #d5dee9);
+}
+
+.revealed {
+  background: #e9eef6;
+  border-color: #b8c4d4;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.cell.revealed:hover {
+  background: #e9eef6;
+  border-color: #b8c4d4;
+  transform: none;
+}
+
+.flagged {
+  border-color: #149120;
+  background: rgba(18, 178, 80, 0.2);
+}
+
+.cell.flagged:hover {
+  border-color: #149120;
+  background: rgba(18, 178, 80, 0.2);
+  transform: none;
+}
+
+.mine {
+  background: #2d2d2d;
+  border-color: #111827;
+}
+
+.cell.mine:hover {
+  background: #2d2d2d;
+  border-color: #111827;
+  transform: none;
+}
+
+.explodedMine {
+  background: #e63946;
+  border-color: #b4232b;
+}
+
+.cell.explodedMine:hover {
+  background: #e63946;
+  border-color: #b4232b;
+  transform: none;
+}
+
+.flaggedMine {
+  border-color: #cd1414;
+  background: rgba(233, 41, 3, 0.2);
+}
+
+.cell.flaggedMine:hover {
+  border-color: #cd1414;
+  background: rgba(233, 41, 3, 0.2);
+  transform: none;
+}
+
+.number1 {
+  color: #1d4ed8;
+}
+
+.number2 {
+  color: #15803d;
+}
+
+.number3 {
+  color: #dc2626;
+}

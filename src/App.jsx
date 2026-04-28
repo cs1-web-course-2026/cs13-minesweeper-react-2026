@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Game from './pages/Game'
 import MockGame from './pages/MockGame'
+import ZhukYaroslavGame from './pages/ZhukYaroslav';
+import StudentMinesweeperGame from './pages/SheveliaViktoriia'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="game" element={<Game />} />
         <Route path="mock-game" element={<MockGame />} />
+        <Route path="/zhuk-yaroslav" element={<ZhukYaroslavGame />} />
+        <Route path="shevelia-viktoriia" element={<StudentMinesweeperGame />} />
       </Route>
     </Routes>
   )
