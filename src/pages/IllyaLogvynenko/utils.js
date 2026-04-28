@@ -1,4 +1,4 @@
-import { CELL_CONTENT, CELL_STATE, GAME_STATUS } from './constants';
+import { CELL_CONTENT, CELL_STATE, GAME_STATUS } from './constants/game'
 
 export function createCell() {
   return {
