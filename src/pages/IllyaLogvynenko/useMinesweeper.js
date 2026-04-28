@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import { CELL_STATE, DEFAULT_SETTINGS, GAME_STATUS } from './constants';
+import { useCallback, useEffect, useState } from 'react'
+import { CELL_STATE, GAME_STATUS, DEFAULT_SETTINGS } from './constants/game'
 import {
   checkWinCondition,
+  cloneBoard,
   countFlaggedCells,
   createInitialGameState,
   formatCounterValue,
@@ -9,7 +10,7 @@ import {
   getStatusMessage,
   placeMines,
   revealCells
-} from './gameUtils';
+} from './utils'
 
 export default function useMinesweeper(settings = DEFAULT_SETTINGS) {
   const [gameState, setGameState] = useState(() => createInitialGameState(settings));
