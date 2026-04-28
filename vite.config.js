@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/cs13-minesweeper-react-2026/' : '/',
+export default defineConfig({
   plugins: [react()],
-}))
+})
