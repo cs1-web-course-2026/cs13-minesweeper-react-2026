@@ -1,0 +1,156 @@
+/* Головний контейнер (Темна тема) */
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 60px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 450px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Панель з інформацією */
+.infoPanel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #2d2d2d;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.infoItem {
+  display: flex;
+  gap: 8px;
+}
+
+/* Кнопки складності */
+.difficultyButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.difficultyBtn {
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.difficultyBtn:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+/* Кнопка "Нова гра" */
+.newGameBtn {
+  padding: 10px 24px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newGameBtn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Ігрове поле */
+.gameBoard {
+  display: inline-grid;
+  gap: 3px; /* Проміжок між клітинками */
+  background: #808080; /* Сірий фон під клітинками */
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Закрита клітинка */
+.cell {
+  width: 35px;
+  height: 35px;
+  background-color: #f8f9fa;
+  border: none; 
+  border-radius: 6px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.1s, transform 0.1s;
+}
+
+/* Ефект наведення на закриту клітинку */
+.cell:hover:not(.revealed) {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+}
+
+/* Ефект натискання */
+.cell:active:not(.revealed) {
+  background-color: #dee2e6;
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Відкрита клітинка */
+.revealed {
+  background-color: #ced4da;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  cursor: default;
+}
+
+/* Клітинка з міною */
+.exploded {
+  background-color: #ef4444;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Повідомлення про перемогу/програш */
+.gameMessage {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.win { 
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #4ade80; 
+}
+.lost { 
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171; 
+}
+
+/* Сучасні кольори цифр */
+.num1 { color: #2563eb; } /* Синій */
+.num2 { color: #16a34a; } /* Зелений */
+.num3 { color: #dc2626; } /* Червоний */
+.num4 { color: #4f46e5; } /* Темно-синій/Фіолетовий */
+.num5 { color: #b91c1c; } /* Темно-червоний */
+.num6 { color: #0d9488; } /* Бірюзовий */
