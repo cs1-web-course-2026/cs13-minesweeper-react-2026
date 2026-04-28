@@ -1,6 +1,6 @@
-import { CELL_CONTENT, CELL_STATE, GAME_STATUS } from '../constants';
-import { getCellAriaLabel } from '../gameUtils';
-import styles from '../Minesweeper.module.css';
+import styles from '../Minesweeper.module.css'
+import { CELL_CONTENT, CELL_STATE } from '../constants/game'
+import { getCellAriaLabel } from '../utils'
 
 function Cell({
   cell,
@@ -11,59 +11,64 @@ function Cell({
   onReveal,
   onToggleFlag
 }) {
-  const shouldRevealBoard = gameStatus !== GAME_STATUS.PLAYING;
-  const classNames = [styles.cell];
-  let text = '';
-
-  if (cell.state === CELL_STATE.OPENED) {
-    classNames.push(styles.open);
-
-    if (cell.type === CELL_CONTENT.MINE) {
-      classNames.push(styles.mine);
-    } else if (cell.neighborMines > 0) {
-      classNames.push(styles[`value${cell.neighborMines}`]);
-      text = String(cell.neighborMines);
-    }
-  } else if (cell.state === CELL_STATE.FLAGGED) {
-    if (shouldRevealBoard && cell.type !== CELL_CONTENT.MINE) {
-      classNames.push(styles.open, styles.flag, styles.falseFlag);
-    } else {
-      classNames.push(styles.closed, styles.flag);
-    }
-  } else if (shouldRevealBoard && cell.type === CELL_CONTENT.MINE) {
-    classNames.push(styles.open, styles.mine);
-  } else {
-    classNames.push(styles.closed);
-  }
-
-  if (
-    explodedCell !== null &&
+  const isExploded =
+    explodedCell &&
     explodedCell.row === row &&
     explodedCell.col === col
-  ) {
-    classNames.push(styles.clicked);
+
+  const isGameLost = gameStatus === 'lose'
+  const isOpened = cell.state === CELL_STATE.OPENED
+  const isFlagged = cell.state === CELL_STATE.FLAGGED
+  const isMine = cell.type === CELL_CONTENT.MINE
+
+  let content = ''
+
+  if (isOpened) {
+    if (isMine) {
+      content = '💣'
+    } else if (cell.neighborMines > 0) {
+      content = cell.neighborMines
+    }
+  } else if (isFlagged) {
+    content = '🚩'
+  } else if (isGameLost && isMine) {
+    content = '💣'
   }
 
-  const handleClick = () => {
-    onReveal(row, col);
-  };
+  const classNames = [styles.cell]
 
-  const handleContextMenu = (event) => {
-    event.preventDefault();
-    onToggleFlag(row, col);
-  };
+  if (isOpened) {
+    classNames.push(styles.opened)
+  }
+
+  if (isFlagged) {
+    classNames.push(styles.flagged)
+  }
+
+  if (isExploded) {
+    classNames.push(styles.exploded)
+  }
+
+  function handleClick() {
+    onReveal(row, col)
+  }
+
+  function handleContextMenu(event) {
+    event.preventDefault()
+    onToggleFlag(row, col)
+  }
 
   return (
     <button
       type="button"
       className={classNames.join(' ')}
-      aria-label={getCellAriaLabel(row, col, cell)}
       onClick={handleClick}
       onContextMenu={handleContextMenu}
+      aria-label={getCellAriaLabel(row, col, cell)}
     >
-      {text}
+      {content}
     </button>
-  );
+  )
 }
 
-export default Cell;
+export default Cell
