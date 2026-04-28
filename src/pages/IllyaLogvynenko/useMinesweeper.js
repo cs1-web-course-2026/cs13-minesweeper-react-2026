@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { CELL_STATE, GAME_STATUS, DEFAULT_SETTINGS } from './constants/game'
+import { CELL_STATE, DEFAULT_SETTINGS, GAME_STATUS } from './constants/game'
 import {
   checkWinCondition,
   cloneBoard,
