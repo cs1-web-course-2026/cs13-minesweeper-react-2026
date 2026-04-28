@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import styles from './Game.module.css'
 
 const STATUS_CLASS = {
@@ -30,21 +32,30 @@ function Game() {
       status: "Complete"
     },
     {
-    id: "zhuk-yaroslav", 
-    title: "Minesweeper React",
-    description: "Реалізація гри Сапер на React (Практична 4)",
-    author: "Ярослав Жук",
-    link: "/zhuk-yaroslav",
-    difficulty: "Intermediate",
-    status: "Complete"
+      id: "zhuk-yaroslav",
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React (Практична 4)",
+      author: "Ярослав Жук",
+      link: "/zhuk-yaroslav",
+      difficulty: "Intermediate",
+      status: "Complete"
     },
     {
-      id: 2,
+      id: "illya-logvynenko",
       title: "Minesweeper React",
       description: "Реалізація гри Сапер на React",
       author: "Illya Logvynenko",
       link: "/illya-logvynenko",
       difficulty: "Intermediate",
+      status: "Complete"
+    },
+    {
+      id: 2,
+      title: "Basic Minesweeper",
+      description: "A simple implementation with basic game mechanics",
+      author: "Author Name",
+      link: "#",
+      difficulty: "Beginner",
       status: "Complete"
     },
     {
@@ -107,9 +118,9 @@ function Game() {
             <p className={styles.description}>{impl.description}</p>
             <div className={styles.cardActions}>
               {impl.link.startsWith('/') ? (
-                <a href={impl.link} className={styles.linkBtn}>
+                <Link to={impl.link} className={styles.linkBtn}>
                   View Implementation →
-                </a>
+                </Link>
               ) : (
                 <a
                   href={impl.link}
