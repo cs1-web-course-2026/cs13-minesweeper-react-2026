@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
-import { CELL_STATE, DEFAULT_SETTINGS, GAME_STATUS } from './constants/game'
+import { useCallback, useEffect, useState } from 'react';
+import { CELL_STATE, DEFAULT_SETTINGS, GAME_STATUS } from './constants/game';
 import {
   checkWinCondition,
   countFlaggedCells,
@@ -9,7 +9,7 @@ import {
   getStatusMessage,
   placeMines,
   revealCells
-} from './utils'
+} from './utils';
 
 export default function useMinesweeper(settings = DEFAULT_SETTINGS) {
   const [gameState, setGameState] = useState(() => createInitialGameState(settings));
@@ -29,7 +29,7 @@ export default function useMinesweeper(settings = DEFAULT_SETTINGS) {
     return () => clearInterval(timerId);
   }, [gameState.firstMoveMade, gameState.status]);
 
-  const handleReveal = (row, col) => {
+  const handleReveal = useCallback((row, col) => {
     setGameState((previousState) => {
       if (previousState.status !== GAME_STATUS.PLAYING) {
         return previousState;
@@ -72,9 +72,9 @@ export default function useMinesweeper(settings = DEFAULT_SETTINGS) {
         firstMoveMade
       };
     });
-  };
+  }, []);
 
-  const handleToggleFlag = (row, col) => {
+  const handleToggleFlag = useCallback((row, col) => {
     setGameState((previousState) => {
       if (previousState.status !== GAME_STATUS.PLAYING) {
         return previousState;
@@ -118,11 +118,11 @@ export default function useMinesweeper(settings = DEFAULT_SETTINGS) {
         board: nextBoard
       };
     });
-  };
+  }, []);
 
-  const handleRestart = () => {
+  const handleRestart = useCallback(() => {
     setGameState(createInitialGameState(settings));
-  };
+  }, [settings]);
 
   const flagsLeft = formatCounterValue(
     gameState.minesCount - countFlaggedCells(gameState.board)
