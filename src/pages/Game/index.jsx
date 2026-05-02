@@ -75,6 +75,15 @@ function Game() {
       link: "/shevelia-viktoriia",
       difficulty: "Beginner",
       status: "Complete"
+    },
+    {
+      id: "dubrovskyi-vladyslav",
+      title: "Minesweeper (Компонентний підхід)",
+      description: "Повноцінна міграція гри Сапер на React з використанням кастомних хуків та CSS Modules.",
+      author: "Влад Дубровський",
+      link: "/dubrovskyi-vladyslav",
+      difficulty: "Intermediate",
+      status: "Complete"
     }
   ]
 
