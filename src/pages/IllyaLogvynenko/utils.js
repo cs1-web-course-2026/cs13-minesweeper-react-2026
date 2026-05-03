@@ -1,4 +1,4 @@
-import { CELL_CONTENT, CELL_STATE, GAME_STATUS } from './constants/game'
+import { CELL_CONTENT, CELL_STATE, GAME_STATUS } from './constants/game';
 
 export function createCell() {
   return {
@@ -125,7 +125,11 @@ export function checkWinCondition(grid) {
 }
 
 export function formatCounterValue(value) {
-  return String(Math.min(Math.max(value, 0), 999)).padStart(3, '0');
+  if (value < 0) {
+    return `-${String(Math.abs(value)).padStart(2, '0')}`;
+  }
+
+  return String(Math.min(value, 999)).padStart(3, '0');
 }
 
 export function getStatusMessage(status) {
@@ -198,20 +202,24 @@ export function revealCells(board, row, col) {
   let status = GAME_STATUS.PLAYING;
   let explodedCell = null;
 
-  function revealRecursive(currentRow, currentCol) {
+  const stack = [{ r: row, c: col }];
+
+  while (stack.length > 0) {
+    const { r: currentRow, c: currentCol } = stack.pop();
+
     if (
       currentRow < 0 ||
       currentRow >= nextBoard.length ||
       currentCol < 0 ||
       currentCol >= nextBoard[0].length
     ) {
-      return;
+      continue;
     }
 
     const cell = nextBoard[currentRow][currentCol];
 
     if (cell.state === CELL_STATE.OPENED || cell.state === CELL_STATE.FLAGGED) {
-      return;
+      continue;
     }
 
     cell.state = CELL_STATE.OPENED;
@@ -219,19 +227,17 @@ export function revealCells(board, row, col) {
     if (cell.type === CELL_CONTENT.MINE) {
       status = GAME_STATUS.LOST;
       explodedCell = { row: currentRow, col: currentCol };
-      return;
+      break;
     }
 
     if (cell.neighborMines === 0) {
       getAdjacentCells(nextBoard, currentRow, currentCol).forEach(
         ({ row: neighborRow, col: neighborCol }) => {
-          revealRecursive(neighborRow, neighborCol);
+          stack.push({ r: neighborRow, c: neighborCol });
         }
       );
     }
   }
-
-  revealRecursive(row, col);
 
   return {
     board: nextBoard,
