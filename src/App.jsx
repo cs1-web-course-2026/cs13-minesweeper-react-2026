@@ -14,7 +14,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="game" element={<Game />} />
         <Route path="mock-game" element={<MockGame />} />
-        <Route path="/klushyn-maksym" element={<KlushynMaksymGame />} />
+        <Route path="klushyn-maksym" element={<KlushynMaksymGame />} />
       </Route>
     </Routes>
   )

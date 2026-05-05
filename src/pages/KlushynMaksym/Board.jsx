@@ -5,17 +5,22 @@ import styles from './Minesweeper.module.css';
 export default function Board({ board, onCellClick, onCellRightClick }) {
     if (!board || board.length === 0) return null;
 
+    const colsCount = board[0].length;
+
     return (
-        <main className={styles.gameBoard}>
-            {board.map((row, rIdx) =>
-                row.map((cell, cIdx) => (
+        <main 
+            className={styles.gameBoard}
+            style={{ gridTemplateColumns: `repeat(${colsCount}, 1fr)` }}
+        >
+            {board.map((row, rowIndex) =>
+                row.map((cell, colIndex) => (
                     <Cell
-                        key={`${rIdx}-${cIdx}`}
+                        key={`${rowIndex}-${colIndex}`}
                         cellData={cell}
-                        rowIndex={rIdx}
-                        colIndex={cIdx}
-                        onClick={() => onCellClick(rIdx, cIdx)}
-                        onRightClick={(e) => onCellRightClick(e, rIdx, cIdx)}
+                        rowIndex={rowIndex}
+                        colIndex={colIndex}
+                        onClick={() => onCellClick(rowIndex, colIndex)}
+                        onRightClick={(event) => onCellRightClick(event, rowIndex, colIndex)}
                     />
                 ))
             )}

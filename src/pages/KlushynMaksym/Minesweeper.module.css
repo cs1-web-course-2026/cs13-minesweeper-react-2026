@@ -1,5 +1,5 @@
-/* CSS Змінні (Палітра та тіні) */
 .minesweeperApp {
+  /* Твої фірмові кольори */
   --bg-page: #f4f7f6;
   --bg-app: #ffffff;
   --cell-closed: #e2e8f0;
@@ -22,7 +22,7 @@
   max-width: 420px;
   margin: 0 auto;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #334155;
+  color: #334155; /* Жорстко задаємо колір тексту, щоб темна тема не перебивала */
 }
 
 .gameHeader {
@@ -68,10 +68,9 @@
 
 .gameBoard {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
   gap: 4px;
   background-color: var(--bg-app);
-  width: 100%; /* Не даем сетке вылезать за края */
+  width: 100%;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -79,8 +78,8 @@
 
 .cell {
   background-color: var(--cell-closed);
-  aspect-ratio: 1 / 1;
-  width: 100%; 
+  aspect-ratio: 1 / 1; /* Робить клітинки ідеально квадратними */
+  width: 100%;
   box-sizing: border-box;
   border-radius: 6px;
   display: flex;
@@ -95,6 +94,7 @@
   border: none;
   padding: 0;
   margin: 0;
+  color: #334155;
 }
 
 .cell:hover:not(.open) { background-color: var(--cell-hover); }
@@ -107,8 +107,7 @@
 }
 
 .cell.exploded { background-color: var(--bg-exploded); border-color: #fca5a5; }
-.cell.wrongFlag { background-color: var(--bg-wrong); border-color: #fdba74; }
-.cell.flag, .cell.mine { background-color: var(--cell-open); }
+.cell.flag { background-color: var(--cell-open); }
 
 .num1 { color: var(--c-1); }
 .num2 { color: var(--c-2); }
@@ -120,7 +119,24 @@
 .num8 { color: var(--c-8); }
 
 .gameMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a !important; /* Жорстко задаємо темний колір тексту */
+  background-color: #f1f5f9; /* Додаємо легкий сірий фон для краси */
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  min-height: 24px;
+  width: 100%;
+  box-sizing: border-box;
   text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
+}
+
+/* Якщо повідомлення порожнє (гра йде), ховаємо рамку */
+.gameMessage:empty {
+  display: none;
 }
