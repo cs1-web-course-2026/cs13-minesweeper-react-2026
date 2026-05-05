@@ -1,0 +1,31 @@
+.bannerSpacer {
+  min-height: 24px;
+}
+
+.banner {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 650;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(234, 234, 234, 0.95);
+}
+
+.banner--idle {
+  color: rgba(234, 234, 234, 0.7);
+}
+
+.banner--play {
+  color: rgba(234, 234, 234, 0.7);
+}
+
+.banner--win {
+  background: rgba(66, 160, 89, 0.18);
+  border-color: rgba(66, 160, 89, 0.28);
+}
+
+.banner--lose {
+  background: rgba(220, 73, 58, 0.18);
+  border-color: rgba(220, 73, 58, 0.28);
+}
+
