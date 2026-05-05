@@ -75,6 +75,15 @@ function Game() {
       link: "/shevelia-viktoriia",
       difficulty: "Beginner",
       status: "Complete"
+    },
+    {
+      id: "lypnevskyi-matvii",
+      title: "Сапер (React + CSS Modules)",
+      description: "Поле 9×9, 10 мін, таймер, прапорці, safe first move, перемога/програш.",
+      author: "Липневський Матвій",
+      link: "/lypnevskyi-matvii",
+      difficulty: "Intermediate",
+      status: "Complete"
     }
   ]
 
