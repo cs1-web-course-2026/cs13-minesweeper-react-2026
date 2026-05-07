@@ -75,6 +75,15 @@ function Game() {
       link: "/shevelia-viktoriia",
       difficulty: "Beginner",
       status: "Complete"
+    },
+    {
+      id: 6,
+      title: "Classic Minesweeper",
+      description: "React implementation of Minesweeper with timer, flags and restart system",
+      author: "Boiko Vlad",
+      link: "/boiko-vlad",
+      difficulty: "Beginner",
+      status: "Completed"
     }
   ]
 
