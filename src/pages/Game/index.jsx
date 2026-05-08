@@ -137,4 +137,4 @@ function Game() {
   )
 }
 
-export default GamePage;
+export default Game;
