@@ -22,7 +22,7 @@ const Minesweeper = () => {
   useEffect(() => {
     let interval;
     if (status === GAME_STATUS.PLAYING) {
-      interval = setInterval(() => setTimer((t) => t + 1), 1000);
+      interval = setInterval(() => setTimer((previousTimer) => previousTimer + 1), 1000);
     }
     return () => clearInterval(interval); 
   }, [status]);
@@ -31,7 +31,7 @@ const Minesweeper = () => {
     if (status === GAME_STATUS.WON || status === GAME_STATUS.LOST) return;
     if (field[row][col].state !== CELL_STATE.CLOSED) return;
 
-    const newField = field.map(fRow => fRow.map(cell => ({ ...cell })));
+    const newField = field.map(fieldRow => fieldRow.map(cell => ({ ...cell })));
     const cell = newField[row][col];
 
     if (status === GAME_STATUS.IDLE) setStatus(GAME_STATUS.PLAYING);
