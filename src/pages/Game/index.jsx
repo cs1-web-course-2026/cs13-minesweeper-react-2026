@@ -75,6 +75,15 @@ function Game() {
       link: "/shevelia-viktoriia",
       difficulty: "Beginner",
       status: "Complete"
+    },
+    {
+      id: "zdebska-diana",
+      title: "Сапер (React, компоненти + CSS Modules)",
+      description: "8×8, 10 мін, таймер, прапорці, перемога/програш.",
+      author: "Діана Здебська",
+      link: "/zdebska-diana",
+      difficulty: "Beginner",
+      status: "Complete"
     }
   ]
 
