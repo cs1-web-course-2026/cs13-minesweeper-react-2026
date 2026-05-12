@@ -37,13 +37,16 @@ function Game() {
       author: "Maksym Klushyn",
       link: "/klushyn-maksym",
       difficulty: "Intermediate",
-    id: "zhuk-yaroslav", 
-    title: "Minesweeper React",
-    description: "Реалізація гри Сапер на React (Практична 4)",
-    author: "Ярослав Жук",
-    link: "/zhuk-yaroslav",
-    difficulty: "Intermediate",
-    status: "Complete"
+      status: "Complete"
+    },
+    {
+      id: "zhuk-yaroslav", 
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React (Практична 4)",
+      author: "Ярослав Жук",
+      link: "/zhuk-yaroslav",
+      difficulty: "Intermediate",
+      status: "Complete"
     },
     {
       id: 2,
