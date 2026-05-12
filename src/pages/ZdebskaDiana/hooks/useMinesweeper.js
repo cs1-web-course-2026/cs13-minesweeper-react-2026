@@ -26,23 +26,23 @@ function openCellRecursive(board, row, col, rows, cols) {
   if (cell.type === CELL_CONTENT.MINE) return
 
   if (cell.neighborMines === 0) {
-    for (const [dr, dc] of DIRECTIONS) {
-      const nr = row + dr
-      const nc = col + dc
-      if (isInBounds(nr, nc, rows, cols)) {
-        openCellRecursive(board, nr, nc, rows, cols)
+    for (const [directionalRow, directionalCol] of DIRECTIONS) {
+      const neighbourRow = row + directionalRow
+      const neighbourCol = col + directionalCol
+      if (isInBounds(neighbourRow, neighbourCol, rows, cols)) {
+        openCellRecursive(board, neighbourRow, neighbourCol, rows, cols)
       }
     }
   }
 }
 
 function revealAllMines(board, triggeredRow, triggeredCol) {
-  for (let r = 0; r < board.length; r++) {
-    for (let c = 0; c < board[0].length; c++) {
-      const cell = board[r][c]
+  for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
+    for (let colIndex = 0; colIndex < board[0].length; colIndex++) {
+      const cell = board[rowIndex][colIndex]
       if (cell.type === CELL_CONTENT.MINE && cell.state !== CELL_STATE.FLAGGED) {
         cell.state = CELL_STATE.OPENED
-        cell.triggered = r === triggeredRow && c === triggeredCol
+        cell.triggered = rowIndex === triggeredRow && colIndex === triggeredCol
       }
       if (cell.type !== CELL_CONTENT.MINE && cell.state === CELL_STATE.FLAGGED) {
         cell.wrongFlag = true
@@ -106,8 +106,8 @@ export function useMinesweeper({
   )
 
   const handleRightClick = useCallback(
-    (e, row, col) => {
-      e.preventDefault()
+    (event, row, col) => {
+      event.preventDefault()
       if (status !== GAME_STATUS.PLAYING) return
 
       const cell = board[row][col]

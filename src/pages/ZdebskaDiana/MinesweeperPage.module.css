@@ -1,6 +1,7 @@
-:global(*),
-:global(*::before),
-:global(*::after) {
+.page,
+.page *,
+.page *::before,
+.page *::after {
   box-sizing: border-box;
 }
 
