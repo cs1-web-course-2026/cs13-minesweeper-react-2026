@@ -37,6 +37,48 @@ function Game() {
       author: "Maksym Klushyn",
       link: "/klushyn-maksym",
       difficulty: "Intermediate",
+    id: "zhuk-yaroslav", 
+    title: "Minesweeper React",
+    description: "Реалізація гри Сапер на React (Практична 4)",
+    author: "Ярослав Жук",
+    link: "/zhuk-yaroslav",
+    difficulty: "Intermediate",
+    status: "Complete"
+    },
+    {
+      id: 2,
+      title: "Basic Minesweeper",
+      description: "A simple implementation with basic game mechanics",
+      author: "Author Name",
+      link: "#",
+      difficulty: "Beginner",
+      status: "Complete"
+    },
+    {
+      id: 3,
+      title: "Advanced Minesweeper",
+      description: "Features timer, high scores, and custom difficulty",
+      author: "Author name",
+      link: "#",
+      difficulty: "Intermediate",
+      status: "In Progress"
+    },
+    {
+      id: 4,
+      title: "Minesweeper with Themes",
+      description: "Multiple visual themes and sound effects",
+      author: "Author name",
+      link: "#",
+      difficulty: "Advanced",
+      status: "Planning"
+    },
+    {
+      id: 5,
+      title: "Сапер (компоненти + CSS Modules)",
+      description: "Поле 6×8, 10 мін, таймер, прапорці, перемога/програш.",
+      author: "Шевеля Вікторія",
+      link: "/shevelia-viktoriia",
+      difficulty: "Beginner",
       status: "Complete"
     }
   ]
