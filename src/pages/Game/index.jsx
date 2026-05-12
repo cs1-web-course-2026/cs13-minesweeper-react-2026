@@ -112,5 +112,4 @@ function Game() {
   )
 }
 
-export default Game
 export default Game;
