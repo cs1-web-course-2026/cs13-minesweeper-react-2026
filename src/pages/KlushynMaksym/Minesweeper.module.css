@@ -1,0 +1,142 @@
+.minesweeperApp {
+  /* Твої фірмові кольори */
+  --bg-page: #f4f7f6;
+  --bg-app: #ffffff;
+  --cell-closed: #e2e8f0;
+  --cell-hover: #cbd5e1;
+  --cell-open: #f8fafc;
+  --bg-exploded: #fee2e2;
+  --bg-wrong: #ffedd5;
+  
+  --c-1: #3b82f6; --c-2: #10b981; --c-3: #ef4444; --c-4: #6366f1;
+  --c-5: #8b5cf6; --c-6: #14b8a6; --c-7: #334155; --c-8: #000000;
+
+  --shadow-app: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-cell: inset 0 -2px 0 0 rgba(0, 0, 0, 0.1);
+
+  background-color: var(--bg-app);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-app);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #334155; /* Жорстко задаємо колір тексту, щоб темна тема не перебивала */
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cell-open);
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.counter {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-family: 'Segoe UI', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btnRestart {
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnRestart:hover { background-color: #e2e8f0; transform: scale(1.05); }
+.btnRestart:active { transform: scale(0.95); }
+
+.gameBoard {
+  display: grid;
+  gap: 4px;
+  background-color: var(--bg-app);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.cell {
+  background-color: var(--cell-closed);
+  aspect-ratio: 1 / 1; /* Робить клітинки ідеально квадратними */
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--shadow-cell);
+  transition: background-color 0.1s;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #334155;
+}
+
+.cell:hover:not(.open) { background-color: var(--cell-hover); }
+
+.cell.open {
+  background-color: var(--cell-open);
+  box-shadow: none;
+  border: 1px solid #e2e8f0;
+  cursor: default;
+}
+
+.cell.exploded { background-color: var(--bg-exploded); border-color: #fca5a5; }
+.cell.flag { background-color: var(--cell-open); }
+
+.num1 { color: var(--c-1); }
+.num2 { color: var(--c-2); }
+.num3 { color: var(--c-3); }
+.num4 { color: var(--c-4); }
+.num5 { color: var(--c-5); }
+.num6 { color: var(--c-6); }
+.num7 { color: var(--c-7); }
+.num8 { color: var(--c-8); }
+
+.gameMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a !important; /* Жорстко задаємо темний колір тексту */
+  background-color: #f1f5f9; /* Додаємо легкий сірий фон для краси */
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  min-height: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Якщо повідомлення порожнє (гра йде), ховаємо рамку */
+.gameMessage:empty {
+  display: none;
+}

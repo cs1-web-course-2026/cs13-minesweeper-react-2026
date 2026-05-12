@@ -1,0 +1,16 @@
+.status {
+  min-height: 1.4rem;
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  color: #111111;
+}
+
+.win {
+  color: #15803d;
+}
+
+.lose {
+  color: #b91c1c;
+}
+

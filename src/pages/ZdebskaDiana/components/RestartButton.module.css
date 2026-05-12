@@ -1,0 +1,37 @@
+.button {
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  background: linear-gradient(135deg, #e55320, #f97316);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(229, 83, 32, 0.4);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 30px rgba(229, 83, 32, 0.5);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 8px 18px rgba(229, 83, 32, 0.35);
+}
+
+.button:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
