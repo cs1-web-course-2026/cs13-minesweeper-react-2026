@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import styles from './Game.module.css'
 
 const STATUS_CLASS = {
@@ -25,20 +24,29 @@ function Game() {
     {
       id: 1,
       title: "Mock Minesweeper Game",
-      description: "A fully functional minesweeper implementation with timer, flagging, and win/lose detection. This serves as an example for students.",
+      description: "A fully functional minesweeper implementation with timer, flagging, and win/lose detection.",
       author: "Example Implementation",
       link: "/mock-game",
       difficulty: "Beginner",
       status: "Complete"
     },
     {
-    id: "zhuk-yaroslav", 
-    title: "Minesweeper React",
-    description: "Реалізація гри Сапер на React (Практична 4)",
-    author: "Ярослав Жук",
-    link: "/zhuk-yaroslav",
-    difficulty: "Intermediate",
-    status: "Complete"
+      id: 5,
+      title: "Minesweeper - Maksym Klushyn",
+      description: "My implementation of the classic Minesweeper game in React using a modern component-based architecture.",
+      author: "Maksym Klushyn",
+      link: "/klushyn-maksym",
+      difficulty: "Intermediate",
+      status: "Complete"
+    },
+    {
+      id: "zhuk-yaroslav", 
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React (Практична 4)",
+      author: "Ярослав Жук",
+      link: "/zhuk-yaroslav",
+      difficulty: "Intermediate",
+      status: "Complete"
     },
     {
       id: 2,
@@ -92,56 +100,26 @@ function Game() {
       <div className={styles.gameHeader}>
         <h1>Student Implementations</h1>
         <p>Browse student minesweeper implementations</p>
-        <div className={styles.instructions}>
-          <p><strong>To add implementations:</strong> Edit the implementations array in the code</p>
-        </div>
       </div>
 
       <div className={styles.implementationsList}>
         {implementations.map((impl) => (
-          <div
-            key={impl.id}
-            className={[styles.implementationCard, CARD_STATUS_CLASS[impl.status]].filter(Boolean).join(' ')}
-          >
+          <div key={impl.id} className={[styles.implementationCard, CARD_STATUS_CLASS[impl.status]].filter(Boolean).join(' ')}>
             <div className={styles.cardHeader}>
               <h3>{impl.title}</h3>
               <div className={styles.badges}>
-                <span className={[styles.badge, STATUS_CLASS[impl.status]].filter(Boolean).join(' ')}>
-                  {impl.status}
-                </span>
-                <span className={[styles.badge, DIFFICULTY_CLASS[impl.difficulty]].filter(Boolean).join(' ')}>
-                  {impl.difficulty}
-                </span>
+                <span className={[styles.badge, STATUS_CLASS[impl.status]].filter(Boolean).join(' ')}>{impl.status}</span>
+                <span className={[styles.badge, DIFFICULTY_CLASS[impl.difficulty]].filter(Boolean).join(' ')}>{impl.difficulty}</span>
               </div>
             </div>
             <p className={styles.author}>by {impl.author}</p>
             <p className={styles.description}>{impl.description}</p>
             <div className={styles.cardActions}>
-              {impl.link.startsWith('/') ? (
-                <Link to={impl.link} className={styles.linkBtn}>
-                  View Implementation →
-                </Link>
-              ) : (
-                <a
-                  href={impl.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.linkBtn}
-                >
-                  View Implementation →
-                </a>
-              )}
+              <Link to={impl.link} className={styles.linkBtn}>View Implementation →</Link>
             </div>
           </div>
         ))}
       </div>
-
-      {implementations.length === 0 && (
-        <div className={styles.emptyState}>
-          <h2>No implementations yet</h2>
-          <p>Add implementations by editing the code</p>
-        </div>
-      )}
     </div>
   )
 }
