@@ -31,20 +31,20 @@ function Game() {
       status: "Complete"
     },
     {
-      id: 5,
-      title: "Minesweeper - Maksym Klushyn",
-      description: "My implementation of the classic Minesweeper game in React using a modern component-based architecture.",
-      author: "Maksym Klushyn",
-      link: "/klushyn-maksym",
-      difficulty: "Intermediate",
-      status: "Complete"
-    },
-    {
-      id: "zhuk-yaroslav", 
+      id: "zhuk-yaroslav",
       title: "Minesweeper React",
       description: "Реалізація гри Сапер на React (Практична 4)",
       author: "Ярослав Жук",
       link: "/zhuk-yaroslav",
+      difficulty: "Intermediate",
+      status: "Complete"
+    },
+    {
+      id: "illya-logvynenko",
+      title: "Minesweeper React",
+      description: "Реалізація гри Сапер на React",
+      author: "Illya Logvynenko",
+      link: "/illya-logvynenko",
       difficulty: "Intermediate",
       status: "Complete"
     },
