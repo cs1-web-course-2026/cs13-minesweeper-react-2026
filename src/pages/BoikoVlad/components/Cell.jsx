@@ -21,7 +21,10 @@ export default function Cell({
     classNames.push(styles.flag);
   }
 
-  if (cell.state === "opened" && cell.type === "mine") {
+  if (
+    cell.state === "opened" &&
+    cell.type === "mine"
+  ) {
     classNames.push(styles.mine);
   }
 
@@ -30,12 +33,22 @@ export default function Cell({
     cell.type !== "mine" &&
     cell.neighborMines > 0
   ) {
-    classNames.push(styles[`number${cell.neighborMines}`]);
+    classNames.push(
+      styles[`number${cell.neighborMines}`]
+    );
   }
 
   function getCellContent() {
-    if (cell.state === "flagged") return "";
-    if (cell.state === "opened" && cell.type === "mine") return "";
+    if (cell.state === "flagged") {
+      return "";
+    }
+
+    if (
+      cell.state === "opened" &&
+      cell.type === "mine"
+    ) {
+      return "";
+    }
 
     if (
       cell.state === "opened" &&
@@ -48,14 +61,48 @@ export default function Cell({
     return "";
   }
 
+  function getAriaLabel() {
+    const position = `Cell ${rowIndex + 1}-${colIndex + 1}`;
+
+    if (cell.state === "closed") {
+      return `${position}, closed`;
+    }
+
+    if (cell.state === "flagged") {
+      return `${position}, flagged`;
+    }
+
+    if (
+      cell.state === "opened" &&
+      cell.type === "mine"
+    ) {
+      return `${position}, opened mine`;
+    }
+
+    if (
+      cell.state === "opened" &&
+      cell.neighborMines > 0
+    ) {
+      return `${position}, opened, ${cell.neighborMines} neighboring mines`;
+    }
+
+    return `${position}, opened empty`;
+  }
+
   return (
     <button
       type="button"
       className={classNames.join(" ")}
-      aria-label={`Cell ${rowIndex + 1}-${colIndex + 1}`}
-      onClick={() => onCellClick(rowIndex, colIndex)}
+      aria-label={getAriaLabel()}
+      onClick={() =>
+        onCellClick(rowIndex, colIndex)
+      }
       onContextMenu={(event) =>
-        onCellRightClick(event, rowIndex, colIndex)
+        onCellRightClick(
+          event,
+          rowIndex,
+          colIndex
+        )
       }
     >
       {getCellContent()}

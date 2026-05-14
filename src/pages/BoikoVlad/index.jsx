@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import styles from "./Minesweeper.module.css";
 
 import Board from "./components/Board";
@@ -7,6 +8,7 @@ import RestartButton from "./components/RestartButton";
 import GameStatus from "./components/GameStatus";
 
 import {
+  createEmptyField,
   createGameField,
   openCell,
   toggleFlag,
@@ -20,10 +22,11 @@ const MINES_COUNT = 10;
 
 export default function BoikoVlad() {
   const [field, setField] = useState(() =>
-    createGameField(ROWS, COLS, MINES_COUNT)
+    createEmptyField(ROWS, COLS)
   );
 
-  const [status, setStatus] = useState("process");
+  const [status, setStatus] = useState("idle");
+
   const [time, setTime] = useState(0);
 
   useEffect(() => {
@@ -39,15 +42,35 @@ export default function BoikoVlad() {
   const flagsLeft = MINES_COUNT - countFlags(field);
 
   function restartGame() {
-    setField(createGameField(ROWS, COLS, MINES_COUNT));
-    setStatus("process");
+    setField(createEmptyField(ROWS, COLS));
+    setStatus("idle");
     setTime(0);
   }
 
   function handleCellClick(rowIndex, colIndex) {
-    if (status !== "process") return;
+    if (status === "win" || status === "lose") {
+      return;
+    }
 
-    const { newField, result } = openCell(field, rowIndex, colIndex);
+    let currentField = field;
+
+    if (status === "idle") {
+      currentField = createGameField(
+        ROWS,
+        COLS,
+        MINES_COUNT,
+        rowIndex,
+        colIndex
+      );
+
+      setStatus("process");
+    }
+
+    const { newField, result } = openCell(
+      currentField,
+      rowIndex,
+      colIndex
+    );
 
     setField(newField);
 
@@ -64,9 +87,16 @@ export default function BoikoVlad() {
   function handleCellRightClick(event, rowIndex, colIndex) {
     event.preventDefault();
 
-    if (status !== "process") return;
+    if (status === "win" || status === "lose") {
+      return;
+    }
 
-    const newField = toggleFlag(field, rowIndex, colIndex);
+    const newField = toggleFlag(
+      field,
+      rowIndex,
+      colIndex
+    );
+
     setField(newField);
   }
 
@@ -74,7 +104,9 @@ export default function BoikoVlad() {
     <div className={styles.page}>
       <div className={styles.game}>
         <header className={styles.header}>
-          <div className={styles.flags}>{flagsLeft}</div>
+          <div className={styles.flags}>
+            {flagsLeft}
+          </div>
 
           <RestartButton onRestart={restartGame} />
 
