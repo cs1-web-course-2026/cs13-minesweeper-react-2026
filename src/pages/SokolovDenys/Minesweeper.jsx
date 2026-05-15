@@ -19,6 +19,11 @@ const Minesweeper = () => {
   const [timer, setTimer] = useState(0);
   const [flagsLeft, setFlagsLeft] = useState(config.mines);
 
+  // Helper function to deep clone the field to avoid direct mutation
+  const cloneField = (currentField) => {
+    return currentField.map(fieldRow => fieldRow.map(cell => ({ ...cell })));
+  };
+
   useEffect(() => {
     let interval;
     if (status === GAME_STATUS.PLAYING) {
@@ -31,7 +36,7 @@ const Minesweeper = () => {
     if (status === GAME_STATUS.WON || status === GAME_STATUS.LOST) return;
     if (field[row][col].state !== CELL_STATE.CLOSED) return;
 
-    const newField = field.map(fieldRow => fieldRow.map(cell => ({ ...cell })));
+    const newField = cloneField(field);
     const cell = newField[row][col];
 
     if (status === GAME_STATUS.IDLE) setStatus(GAME_STATUS.PLAYING);
@@ -55,7 +60,7 @@ const Minesweeper = () => {
     if (status === GAME_STATUS.WON || status === GAME_STATUS.LOST) return;
     if (field[row][col].state === CELL_STATE.OPEN) return;
 
-    const newField = field.map(fRow => fRow.map(cell => ({ ...cell })));
+    const newField = cloneField(field);
     const cell = newField[row][col];
 
     if (cell.state === CELL_STATE.FLAGGED) {
